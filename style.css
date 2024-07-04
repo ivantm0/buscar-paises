@@ -15,6 +15,7 @@
 
 body{
     background-color: var(--Very-Light);
+    font-family: 'Nunito Sans';
 }
 
 .navbar{
@@ -27,6 +28,7 @@ body{
 .modo__oscuro{
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .modo__oscuro p{
@@ -120,10 +122,19 @@ body{
     -webkit-box-shadow: 0px 0px 22px 2px rgba(0,0,0,0.49);
     -moz-box-shadow: 0px 0px 22px 2px rgba(0,0,0,0.49);
     box-shadow: 0px 0px 22px 2px rgba(0,0,0,0.49);
+    cursor: pointer;
 }
 
 i{
     font-size: 30px;
+}
+
+#no__encontrado{
+    margin-left: 5%;
+}
+
+#lupa{
+    cursor: pointer;
 }
 
 
