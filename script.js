@@ -16,6 +16,10 @@ const parr8 = document.getElementById('parr8');
 const atras = document.getElementById('atras');
 const buscador = document.getElementById('buscador');
 const noEncontrado = document.getElementById('no__encontrado');
+const oscuro = document.getElementById('dark__mode');
+const navbar = document.getElementById('navbar');
+const divPrincipal = document.getElementById('div__principal');
+const luna = document.getElementById('luna');
 
 const url = 'https://restcountries.com/v3.1/all';
 
@@ -133,3 +137,26 @@ buscar.addEventListener('keydown', function(e) {
         })
     }
 });
+
+let flag = true;
+oscuro.addEventListener('click', () => {
+    if(flag){
+        luna.classList.add('bxs-moon');
+        luna.classList.remove('bx-moon');
+
+        body.classList.add('oscuro');
+        navbar.classList.add('oscuro__navbar');
+        lupa.classList.add('lupa__oscura');
+        buscar.classList.add('cuadro__oscuro');
+        flag = false;
+    }else{
+        luna.classList.remove('bxs-moon');
+        luna.classList.add('bx-moon');
+
+        body.classList.remove('oscuro');
+        navbar.classList.remove('oscuro__navbar');
+        lupa.classList.remove('lupa__oscura');
+        buscar.classList.remove('cuadro__oscuro');
+        flag = true;
+    }
+})
