@@ -174,3 +174,8 @@ i{
     color: var(--White);
 }
 
+@media (max-width: 830px){
+    .paises__info{
+        flex-direction: column;
+    }
+}

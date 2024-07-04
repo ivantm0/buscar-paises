@@ -20,6 +20,7 @@ const oscuro = document.getElementById('dark__mode');
 const navbar = document.getElementById('navbar');
 const divPrincipal = document.getElementById('div__principal');
 const luna = document.getElementById('luna');
+const region = document.getElementById('region');
 
 const url = 'https://restcountries.com/v3.1/all';
 
@@ -245,4 +246,4 @@ oscuro.addEventListener('click', () => {
         buscar.classList.remove('cuadro__oscuro');
         flag = true;
     }
-})
+});
