@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body id="body">
+    
+    <div class="navbar">
+        <h2>¿Dónde está en el mundo?</h2>
+        <div class="modo__oscuro">
+            <p> Dark Mode</p>
+        </div>
+    </div>
+
+    <div id="buscador" class="buscador">
+        <i id="lupa" class='bx bx-search'></i>
+        <input id="cuadro__busqueda" class="cuadro" type="text" placeholder="Busca por país...">
+    </div>
+
+    <div id="contenedor__paises" class="contenedor__paises">
+        
+    </div>
+
+    <div id="atras" class="boton__atras ocultar">
+        <i class='bx bx-left-arrow-alt'></i>
+        <p>Atrás</p>
+    </div>
+
+    <div id="paises__info" class="paises__info ocultar">
+        <div>
+            <img id="imagen__nueva" src="" alt="">
+        </div>
+        <div>
+            <h3 id="titulo"></h3>
+            <p id="parr1"></p>
+            <p id="parr2"></p>
+            <p id="parr3"></p>
+            <p id="parr4"></p>
+            <p id="parr5"></p>
+            <p id="parr6"></p>
+            <p id="parr7"></p>
+            <p id="parr8"></p>
+        </div>
+    </div>
+
+    <div id="no__encontrado" class="ocultar">
+        <h1>País no encontrado</h1>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
