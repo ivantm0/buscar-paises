@@ -70,16 +70,59 @@ lupa.addEventListener('click', () => {
         buscador.classList.add('ocultar');
 
         for(let i=0; i<data.length; i++){
+
             if((data[i].translations.spa.common.toLowerCase() == pais.toLowerCase()) || ((data[i].name.common.toLowerCase() == pais.toLowerCase()))){  
+
+                let name = data[i].name.nativeName;
+                let currency = data[i].currencies;
+                let lengua = data[i].languages;
+
+                let object = JSON.stringify(name);
+                let object2 = JSON.stringify(currency);
+                let object3 = JSON.stringify(lengua);
+                
+                let regex = /[/:,{}/]/g;
+                let eliminar = object.replace(regex,"");
+                let eliminar2 = object2.replace(regex,"");
+                let eliminar3 = object3.replace(regex,"");
+
+                let separar = eliminar.split("\"");
+                let separar2 = eliminar2.split("\"");
+                let separar3 = eliminar3.split("\"");
+
+                console.log(separar3);
+
+                parr1.innerHTML = "Native Name: ";
+                parr7.innerText = "Currencies: ";
+                for(let i=0; i<separar.length; i++){
+                    if(separar[i] == "common"){
+                        parr1.innerText += " " + separar[i+2];
+                    }
+                }
+
+                for(let i=0; i<separar2.length; i++){
+                    if(separar2[i] == "name"){
+                        parr7.innerText += " " + separar2[i+2];
+                    }
+                }
+
+                let indice = 0;
+                parr8.innerText = "Languages: ";
+                for(let i=0; i<separar3.length; i++){
+                    if(separar3[i] == ""){
+                        indice++;
+                        if(indice%2==0){
+                            parr8.innerText += " " + separar3[i+1] + ",";
+                        }
+                    }
+                }
+
                 h3.innerText = data[i].name.common;
-                parr1.innerText = "Native Name: " + data[i].name.nativeName[0];
                 parr2.innerText = "Population: " + data[i].population;
                 parr3.innerText = "Region: " + data[i].region;
                 parr4.innerText = "Sub Region: " + data[i].subregion;
                 parr5.innerText = "Capital: " + data[i].capital;
                 parr6.innerText = "Top Level Domain: " + data[i].tld;
-                parr7.innerText = "Currencies: " + data[i].currencies;
-                parr8.innerText = "Languages: " + data[i].languages;
                 imagenBuscada.setAttribute("src", data[i].flags.png);
                 flag = false;
             }
@@ -115,16 +158,59 @@ buscar.addEventListener('keydown', function(e) {
             buscador.classList.add('ocultar');
     
             for(let i=0; i<data.length; i++){
+    
                 if((data[i].translations.spa.common.toLowerCase() == pais.toLowerCase()) || ((data[i].name.common.toLowerCase() == pais.toLowerCase()))){  
+    
+                    let name = data[i].name.nativeName;
+                    let currency = data[i].currencies;
+                    let lengua = data[i].languages;
+    
+                    let object = JSON.stringify(name);
+                    let object2 = JSON.stringify(currency);
+                    let object3 = JSON.stringify(lengua);
+                    
+                    let regex = /[/:,{}/]/g;
+                    let eliminar = object.replace(regex,"");
+                    let eliminar2 = object2.replace(regex,"");
+                    let eliminar3 = object3.replace(regex,"");
+    
+                    let separar = eliminar.split("\"");
+                    let separar2 = eliminar2.split("\"");
+                    let separar3 = eliminar3.split("\"");
+    
+                    console.log(separar3);
+    
+                    parr1.innerHTML = "Native Name: ";
+                    parr7.innerText = "Currencies: ";
+                    for(let i=0; i<separar.length; i++){
+                        if(separar[i] == "common"){
+                            parr1.innerText += " " + separar[i+2];
+                        }
+                    }
+    
+                    for(let i=0; i<separar2.length; i++){
+                        if(separar2[i] == "name"){
+                            parr7.innerText += " " + separar2[i+2];
+                        }
+                    }
+    
+                    let indice = 0;
+                    parr8.innerText = "Languages: ";
+                    for(let i=0; i<separar3.length; i++){
+                        if(separar3[i] == ""){
+                            indice++;
+                            if(indice%2==0){
+                                parr8.innerText += " " + separar3[i+1] + ",";
+                            }
+                        }
+                    }
+    
                     h3.innerText = data[i].name.common;
-                    parr1.innerText = "Native Name: " + data[i].name.nativeName[0];
                     parr2.innerText = "Population: " + data[i].population;
                     parr3.innerText = "Region: " + data[i].region;
                     parr4.innerText = "Sub Region: " + data[i].subregion;
                     parr5.innerText = "Capital: " + data[i].capital;
                     parr6.innerText = "Top Level Domain: " + data[i].tld;
-                    parr7.innerText = "Currencies: " + data[i].currencies;
-                    parr8.innerText = "Languages: " + data[i].languages;
                     imagenBuscada.setAttribute("src", data[i].flags.png);
                     flag = false;
                 }
