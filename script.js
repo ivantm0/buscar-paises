@@ -94,4 +94,42 @@ atras.addEventListener('click', () => {
     paises.classList.add('contenedor__paises');
     buscador.classList.remove('ocultar');
     paisBuscado.classList.add('ocultar');
-})
+});
+
+buscar.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        fetch(url).then(response => {return response.json()}).then(data => {
+            let pais = buscar.value;
+            let flag = true;
+    
+    
+            noEncontrado.classList.add('ocultar');
+            paises.classList.add('ocultar');
+            paisBuscado.classList.remove('ocultar');
+            atras.classList.remove('ocultar');
+            paises.classList.remove('contenedor__paises');
+            buscador.classList.add('ocultar');
+    
+            for(let i=0; i<data.length; i++){
+                if((data[i].translations.spa.common.toLowerCase() == pais.toLowerCase()) || ((data[i].name.common.toLowerCase() == pais.toLowerCase()))){  
+                    h3.innerText = data[i].name.common;
+                    parr1.innerText = "Native Name: " + data[i].name.nativeName[0];
+                    parr2.innerText = "Population: " + data[i].population;
+                    parr3.innerText = "Region: " + data[i].region;
+                    parr4.innerText = "Sub Region: " + data[i].subregion;
+                    parr5.innerText = "Capital: " + data[i].capital;
+                    parr6.innerText = "Top Level Domain: " + data[i].tld;
+                    parr7.innerText = "Currencies: " + data[i].currencies;
+                    parr8.innerText = "Languages: " + data[i].languages;
+                    imagenBuscada.setAttribute("src", data[i].flags.png);
+                    flag = false;
+                }
+            }
+            if(flag){
+                noEncontrado.classList.remove('ocultar');
+                paisBuscado.classList.add('ocultar');
+    
+            }  
+        })
+    }
+});
